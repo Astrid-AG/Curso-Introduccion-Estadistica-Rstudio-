@@ -1,0 +1,67 @@
+Codigo,Edad,Altura,Peso,Comunidad,Lugar,Test
+C001P,27,167,78.1,urbano,Ciudad,106.5
+C002P,25,173.9,68.9,urbano,Ciudad,175
+C003P,23,169.9,65.8,urbano,Ciudad,134.2
+C004P,20,168.2,53.9,urbano,Ciudad,167.3
+C005P,31,170.3,69,urbano,Ciudad,62.14
+C006P,23,163.3,61.3,urbano,Ciudad,200
+C007P,21,168.2,75.8,urbano,Ciudad,162.3
+C008P,25,184.1,65.5,urbano,Ciudad,100.3
+C009P,21,173.5,114.1,urbano,Ciudad,150
+C010P,21,180.5,80.9,urbano,Ciudad,98.36
+C011P,23,175,64.2,urbano,Ciudad,103.3
+C012P,21,171.9,69.8,urbano,Ciudad,197.2
+C013P,20,165.7,72.9,urbano,Ciudad,112.6
+C014P,21,165,64.1,urbano,Ciudad,146.8
+C015P,22,173.5,61.5,urbano,Ciudad,171.5
+C016P,20,171.7,86,urbano,Ciudad,71.55
+C017P,26,183.3,74.2,urbano,Ciudad,104.4
+C018P,30,182.3,76.3,urbano,Ciudad,103.3
+C019P,19,166.5,66.5,urbano,Ciudad,161
+C020P,18,169,84.3,urbano,Ciudad,116.8
+C021P,21,175.8,76.5,urbano,Ciudad,143.8
+C022P,25,182.5,64.7,urbano,Ciudad,123.2
+C023P,20,179,75,urbano,Ciudad,133.1
+C024P,23,159.9,64.4,urbano,Ciudad,170.2
+C025P,25,176,80,urbano,Ciudad,72.38
+C026P,25,171.3,65.7,urbano,Ciudad,123.2
+C027P,30,168.2,65.2,urbano,Ciudad,109.1
+C028P,21,179,81.7,urbano,Ciudad,106.2
+C029P,21,172.5,68.2,urbano,Ciudad,134.4
+C030P,21,160,48.7,urbano,Ciudad,121.9
+C031P,21,164.8,72,urbano,Ciudad,240.7
+N048P,18,,,rural,Naranjo,157.7
+N058P,32,161.6,65.1,rural,Naranjo,139.5
+N060P,39,149,57.3,rural,Naranjo,91.2
+N069P,27,165.3,78.2,rural,Naranjo,132.4
+N072P,18,161,56.4,rural,Naranjo,48.41
+N127P,32,167.2,71.9,rural,Naranjo,37.38
+N132P,29,170,82.3,rural,Naranjo,77.63
+N133P,25,157,68.4,rural,Naranjo,200.1
+N134P,33,164.4,65,rural,Naranjo,135.7
+N135P,19,152.1,46.2,rural,Naranjo,100.6
+N136P,23,156.4,61.1,rural,Naranjo,92.56
+N137P,22,168,65.5,rural,Naranjo,107.8
+N138P,25,162.8,61.9,rural,Naranjo,99.26
+N139P,36,164.5,58.9,rural,Naranjo,79.09
+G016P,42,162,56.6,rural,Plan de Gatica,152
+G111P,25,173.5,78.8,rural,Plan de Gatica,147.7
+G112P,24,167.9,79.7,rural,Plan de Gatica,102.9
+G113P,24,162,61.3,rural,Plan de Gatica,194.4
+G114P,34,161,64.9,rural,Plan de Gatica,131.3
+G115P,26,163.8,65.7,rural,Plan de Gatica,91.07
+G116P,23,159.7,50.2,rural,Plan de Gatica,89.93
+G117P,18,158.1,67.5,rural,Plan de Gatica,52.25
+G012P,40,154,63,rural,Plan de Gatica,197
+G020P,37,157,62.7,rural,Plan de Gatica,47.7
+G025P,47,157.5,56.3,rural,Plan de Gatica,116
+G028P,28,163,66.3,rural,Plan de Gatica,166
+G029P,50,158,77.8,rural,Plan de Gatica,70.34
+G030P,30,160,71.1,rural,Plan de Gatica,37.04
+G033P,30,158,72.7,rural,Plan de Gatica,19.01
+G034P,36,160,63.5,rural,Plan de Gatica,48.61
+G045P,42,168,72.6,rural,Plan de Gatica,74.62
+G068P,26,167,59.2,rural,Plan de Gatica,144.2
+G081P,20,155,58.6,rural,Plan de Gatica,281.2
+G102P,36,166,76.9,rural,Plan de Gatica,150.8
+G105P,33,162,61.6,rural,Plan de Gatica,174.2

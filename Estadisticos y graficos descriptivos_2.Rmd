@@ -1,0 +1,64 @@
+---
+title: "Estadística Descriptiva"
+output: pdf_document
+---
+## **Estadísticos de dispersión.**
+
+La tendencia central no es el unico tipo de resumen estadistico que queremos calcular. Lo segundo que queremos es una medida de la variabilidad de los datos. Es decir, ¿qué tan "dispersos" están los datos? ¿Qué tan "lejos" de la media o
+mediana tienden a ser los valores observados?
+
+## **Rango.** 
+Es la diferencia entre la puntuación mayor y la menor en una distribución y se
+obtiene restándole a la puntuación mayor, la menor.
+```{r}
+library(datasets)
+datos_wom <- women #Este conjunto de datos proporciona las alturas y pesos promedio de las mujeres estadounidenses de 30 a 39 años.
+altura<- women$height
+peso<- women$weight #libras
+```
+```{r}
+max( peso )-min( peso ) #Rango
+
+range(peso)
+
+```
+
+Nota: Es inestable (los puntajes extremos pueden exagerar el rango)
+
+
+## **Varianza.**
+La varianza es una medida de dispersión que representa la variabilidad de una serie de datos respecto a su media. Formalmente se calcula como la suma de los residuos al cuadrado divididos entre el total de observaciones. 
+
+La varianza se divide en:sistemática, es decir las variaciones debidas a los efectos de la variable independiente o tratamiento, y de error o no explicada o residual, que es debida al azar y a los problemas de control 
+
+```{r}
+var( peso ) #Es la unidad al cuadrado  de la variabilidad de nuestros datos respecto a la media  
+
+```
+
+## **Desviación estándar (s).** 
+Es el promedio de desviaciones de las puntuaciones con respecto a la media. Se emplea para variables medidas por intervalos o de razón. 
+
+```{r}
+sd( peso ) #Nos dice que tan dispersos estan nuestros datos respecto a la media  
+
+```
+## ** Estadísticos de forma.**
+Nos permiten observar como se comportan nuestros datos.
+
+##**Asimetría o sesgo 
+```{r}
+#install.packages("psych")
+library( psych )
+
+skew( x = peso )
+```
+
+## **Curtosis.**
+```{r}
+kurtosi( x = peso)
+```
+
+
+
+

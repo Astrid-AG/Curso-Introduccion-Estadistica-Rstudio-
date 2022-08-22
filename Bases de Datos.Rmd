@@ -1,0 +1,81 @@
+---
+title: "Bases de Datos"
+output: pdf_document
+---
+
+Una base de datos es una tabla o una estructura bidimensional similar a una matriz en la que cada columna contiene valores de una variable y cada fila contiene un conjunto de valores de cada columna.
+  
+
+## **Importancion de datos** 
+```{r}
+getwd() #Nos dice la carpeta donde se gurda R y sus paquetes 
+
+setwd("C:/Users/Astrid Galicia/OneDrive") #Configuramos la carpeta que sera nuestro nuevo direcorio de trabajo
+
+#install.packages("readr")
+library(readr)
+```
+
+## **Bases de datos .text o .csv.**
+```{r}
+datos_d <- read_csv("C:/Users/Astrid Galicia/OneDrive/Escritorio/Curso Intersemestral/diabetes.csv") #read_csv importara nuesra base de datos 
+datos_d
+```
+
+```{r}
+str(datos_d) #Nos informacion sobre la naturaleza de las variables y la n de la base
+
+summary(datos_d) #Nos da la estadistica descriptiva mas importante de los datos 
+```
+
+## **Crear bases de datos.**
+```{r}
+#data.frame nos agrupara todas las variables creadas para incorporarlas a una base de datos nueva 
+b_datos <- data.frame(
+    id = c (1:6), 
+    nombre = c("Juan","María","Carlos","Fernanda","Gerardo","Gabriela"),
+    promedio = c(8.8, 9.1, 7.6, 8.0, 8.4,9.5), 
+    sexo = rep(c(1,0),3),
+    
+    stringsAsFactors = FALSE
+  )
+ 
+ b_datos <- transform(b_datos,sexo=factor(sexo,labels=c("Mujer","Hombre")))
+ 
+   print(b_datos) 
+  
+  str(b_datos)
+  
+  print(summary(b_datos))  
+```
+
+## **Exportacion de base de datos.**
+
+```{r}
+write.csv(b_datos, file = "Bdatos.csv", row.names = FALSE)		# Si se desea exportar a .txt, la funcion es write.table
+```
+
+
+# 6) Instalacion de Paquetes en R
+
+#Ejemplos:
+
+install.packages("IPSUR")	# Este paquete te incluye algunas bases de datos y un PDF de estadistica para psicologos utilizando R
+
+install.packages("datasets") https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+ 
+ 
+## Ejercicio
+
+Crea una base de datos que contenga el sexo y altura de 100 personas. 
+
+
+```{r}
+base <- data.frame(
+  id = c(1:100),
+  sexo = rep(c(1, 0), 50),
+  altura = sample ( 140:200, 100, replace = TRUE),
+  stringsAsFactors = FALSE) 
+base <- transform(base, sexo = factor(sexo, labels = c("mujer", "hombre" )))
+```
+

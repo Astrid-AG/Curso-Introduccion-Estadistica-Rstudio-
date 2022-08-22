@@ -1,0 +1,92 @@
+---
+title: "Pruebas no paramétricas "
+author: "Astrid V. Arias Galicia"
+output: pdf_document
+---
+## **U de Mann Whitney.**
+
+La prueba de U de Mann Whitney también se conoce con otros nombres: Mann-Whitney-Wilcoxon, Wilcoxon rank sum test y Wilcoxon-Mann-Whitney. En R uilizamos la función  *wilcoxon.test()*
+
+```{r}
+#Insalar los siguientes paquetes 
+#install.packages("clinfun")
+#install.packages("ggplot2")
+#install.packages("pastecs")
+#install.packages("pgirmess")
+
+library(clinfun)
+library(ggplot2)
+library(pastecs)
+library(pgirmess)
+
+#Primer columna 
+droga<-gl(2, 10, labels = c("Extasis", "Alcohol"))
+
+#Segunda columna 
+domingo_BDI<-c(15, 35, 16, 18, 19, 17, 27, 16, 13, 20, 16, 15, 20, 15, 16, 13,14, 19, 18, 18)
+
+#Tercer columna 
+miercoles_BDI<-c(28, 35, 35, 24, 39, 32, 27, 29, 36, 35, 5, 6, 30, 8, 9, 7, 6, 17,3, 10)
+
+#Crear la base 
+datos_droga<-data.frame(droga, domingo_BDI, miercoles_BDI)
+```
+Para calcular p-value hay dos formas:
+
+1. Prueba exacta, si el tamaño de la muestra es 40 o menos y cuando no haya empates de rango.
+
+2. Aproximación normal con corrección de continuidad, si la muestra es mayor a 40 y tenemos empates de rango. 
+
+Hay dos formas diferentes de usar la función *wilcoxon.test()* y depende de si los datos de nuestro grupo estan en una columna o estan en dos columnas diferentes:
+
+- Los datos de nuestros grupos almacenados en una sola columna 
+
+*newModel<-wilcox.test(outcome ~ predictor, data = dataFrame, paired = FALSE/TRUE)*
+
+- Los datos de diferentes grupos almacenados en dos columnas 
+
+*newModel<-wilcox.test(scores group 1, scores group 2, paired = FALSE/TRUE)*
+
+Para calcular una prueba de wilcoxon básica para nuestros datos de domingo 
+
+```{r}
+domModel<-wilcox.test(domingo_BDI ~ droga, data = datos_droga)
+domModel
+```
+
+Para calcular una prueba de wilcoxon básica para nuestros datos del miercoles 
+
+```{r}
+mieModel<-wilcox.test(miercoles_BDI ~ droga, data = datos_droga)
+mieModel
+```
+
+Para usar una aproximación normal y deshacernos de la corrección de continuidad haremos lo siguiente:
+
+```{r}
+domModel<-wilcox.test(domingo_BDI ~ droga, data = datos_droga, exact = FALSE, correct= FALSE)
+domModel
+
+mieModel<-wilcox.test(miercoles_BDI ~ droga, data = datos_droga, exact = FALSE,correct= FALSE)
+mieModel
+```
+
+## **Chi cuadrada.**
+
+En un estudio que se llevó a cabo en Estados Unidos con 1293 personas, para observar si había una relación entre la obesidad y su estado civil.
+```{r}
+novio<-c(81,359)
+ulibre<- c(103,326)
+casados<-c(147,277)
+
+datos_eu<-data.frame(novio,ulibre,casados)
+datos_eu
+sum(datos_eu)
+
+#Calcular chi cuadrada
+chisq.test(datos_eu)
+#Rechazamos la hipotesis nula 
+```
+
+
+

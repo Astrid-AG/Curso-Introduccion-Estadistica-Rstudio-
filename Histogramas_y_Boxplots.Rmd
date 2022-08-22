@@ -1,0 +1,64 @@
+---
+title: "Histogramas y Boxplots"
+output: pdf_document
+---
+## **Histogramas**
+Un histograma es una gráfica que nos permite observar la distribución de datos numéricos usando barras. Cada barra representa el número de veces (frecuencia) que se observaron datos en un rango determinado.
+
+```{r}
+library(datasets)
+datos<-women #pesos y alturas de 15 mujeres de Estados Unidos 
+altura<- women$height #en pulgadas
+peso<-women$weight  #en libras
+
+hist(peso)
+```
+
+Para darle un mejor estilo visual a su historgrama:
+
+```{r}
+hist( x = peso,
+breaks = 3, #cortes      
+main = "Histograma de pesos", #Titulo del plot 
+xlab = "Peso (lbs)",  #Etiqueta del eje x 
+density = 10, # Dibuja sombreado de lineas 
+angle = 40,  #angulo de lineas 
+border = "orange", #Color de los bordes de las barras
+col = "green", #color de las lineas sombreadas 
+labels = TRUE, # agregar etiqueas de frecuencias a cada barra
+ylim = c(0,10) #Cambio de escala en el eje de las y 
+)
+
+```
+
+## **Boxplots.**
+
+También conocidos como de caja y bigotes son gráficos que muestra la distribución de una variable usando cuartiles, y de manera visual podemos inferir algunas cosas sobre su dispersión, ubicación y simetría.
+
+```{r}
+library(datasets)
+datos_2<- ToothGrowth #La respuesta es la longitud de los odontoblastos (células responsables del crecimiento de los dientes) en 60 cobayas. Cada animal recibió uno de los tres niveles de dosis de vitamina C (0,5, 1 y 2 mg / día) mediante uno de los dos métodos de administración, jugo de naranja o ácido ascórbico (una forma de vitamina C y codificado como VC).
+summary(datos_2)
+longitud<- datos_2$len
+suplemento <- datos_2$supp #jugo de naranja o acido ascórbico
+dosis<- datos_2$dose
+boxplot( x = longitud )
+```
+
+Podemos comparar disribuciones de una misma variable con diferentes grupos 
+
+```{r}
+boxplot((formula = longitud ~ suplemento),main="Longitud de dientes segun el suplemento",xlab = "Suplemento", ylab = "Longitud", 
+     col = c("orange3", "yellow3"))
+```
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

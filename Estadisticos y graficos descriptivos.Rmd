@@ -1,0 +1,119 @@
+---
+title: "Estadísticos y gráficos descriptivos."
+output:
+  pdf_document: default
+  html_document: default
+---
+Cada vez que obtengamos un nuevo conjunto de datos, una de las primeras cosas que tenemos que hacer es encontrar una forma de resumirlos de forma compacta y fácil de entender, y esto es lo que hace la **estadística descriptiva.** 
+
+*Por ejemplo:*
+```{r}
+#install.packages("datasets")
+library(datasets)
+datos<- InsectSprays #Efectividad de aerosoles para insectos 
+head (datos) #Nos muestra las n primeras filas del conjunto de datos
+
+```
+Esta base de datos contiene dos variables *count* que contiene el número de insectos tratados, y *spray* que contiene el tipo de insecticida. 
+
+```{r}
+print(datos$count)
+```
+
+Solo al mirar los datos no nos facilita el comprenderlos, para tener alguna idea tenemos que realizar algunos estadísticos descriptivos y hacer algunas graficas.
+
+Dado que los estadísticos descriptivos son lo mas facil de ambos temas,comenzare con estos, pero les muestro un histograma de la variable *count* para darnos una idea de lo que tratamos de describir.   
+
+```{r}
+hist(datos$count)
+```
+
+## **Estadísticos de tendencia central.**
+
+En muchas ocasiones es muy útil tratar de condensar los datos en “resúmenes estadísticos”, y lo primero que vamos a hacer es calcular una medida de tendencia central. Las medidas mas utilizadas son la media, la mediana y la moda; ocasionalmente también se reporta una media recortada.
+ 
+## **La Media.**
+
+¿Cómo calculamos la media en R?
+```{r}
+#Tomemos los 6 valores que nos mostró *head* de la base de datos 
+(10 + 7 + 20 + 14 + 14 + 12) / 6
+
+#Utilizamos "sum" y le pedimos a R que divida la salida de la suma
+sum(datos$count[1:6] ) / 6
+
+#Uilizamos la función "mean"
+mean( x = datos$count)
+
+```
+## **La Mediana.**
+
+¿Cómo calculamos la mediana en R?
+```{r}
+sort( x = datos$count) #1. Ordena los valores 
+
+median( x = datos$count) # 2. Utilizamos la funcion "median"
+
+```
+
+## **Media recortada 
+```{r}
+dataset <- c( -15,2,3,4,5,6,7,8,9,12 )
+
+#Calcularemos la media y la mediana 
+mean( x = dataset )
+
+median( x = dataset )
+
+#Tomo una media recortada del 10%
+mean( x = dataset, trim = .1)
+
+```
+```{r}
+#Calcularemos la media recortada de "count"
+mean( x = datos$count, trim = .05)
+```
+ 
+## **¿Cómo saber cuantos numeros recortar?**
+1. Tenemos nuestro conjunto de datos ordenado 
+2. Queremos recortar un p% (lo habitual es hacerlo al 5% =.05). El porcentaje debe ser un valor positivo mayor que 0 y menor que 50 %.
+3. Calculamos np%/100
+4.Del resultado, truncamos la parte entera, y ese sera el número de datos que tenemos que suprimir  
+
+*Por ejemplo:*
+
+1.x = 1.3, 1.5, 2.0, 4.7,8.9, 10, 11.5
+2.El valor que deseo recortar el el 5%
+3. 
+```{r}
+7*5/100
+```
+4. No tenemos numero entero, por lo tanto nos dice que el 5% no nos va a quitar nada. 
+
+Sin embargo si queremos quitar el 15%
+```{r}
+7*15/100
+```
+Truncamos el entero y a nuestra muestra le quitamos el primer y último número.
+
+## **Moda.**
+
+```{r}
+print( datos$spray )
+table(datos$spray ) #tabla de frecuencias 
+ 
+library(lsr)
+modeOf( x = datos$spray ) 
+
+maxFreq( x = datos$spray )
+```
+
+
+
+
+
+
+
+
+
+

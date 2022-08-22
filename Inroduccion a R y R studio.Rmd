@@ -1,0 +1,141 @@
+---
+title: "Introducción a R y R studio"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## **Funciones Básicas .**
+Para hacer cálculos más avanzados necesitaremos comenzar a usar funciones, las cuales pueden ser aritméticas, como:
+```{r}
+ sqrt(16) # Raíz cuadrada
+```
+```{r}
+log(5) #Logaritmo natural 
+```
+```{r}
+sum(3,4,7,9,11) #Suma los valores presentes en los argumentos
+
+```
+```{r}
+exp(4) #Calcula exponencial 
+```
+O un comando que desarrolle algún algoritmo en específico como t.test(), glm(), lm(), etc.  
+Las funciones incluyen paréntesis al final de su nombre, ya que dentro de ellos se p agregan distintos argumentos que son separados por comas. Si damos doble click en la función R nos muestra los posibles argumentos que podemos incluir  	
+Por ejemplo:
+ **rnorm(x)**	
+La cual genera números aleatorios con distribución normal. Esta función incluye 3 argumentos, separados por comas, números aleatorios, media y desviación estándar:
+```{r}
+rnorm(40, mean= 2,sd=4)	
+```
+Todas las funciones tienen argumentos formales y la mayoría contiene argumentos por default.
+
+## **Vectores.** 
+Los vectores almacenan información sobre una función o algoritmo deseado. La forma de crear es la siguiente: 
+```{r}
+a<-4
+a
+```
+```{r}
+z = 70		# Otra forma  de crear vectores
+z
+```
+```{r}
+b<-4:140	#Podemos crear vectores con valores de x número hasta y número 
+b
+```
+```{r}
+y<-(pi+sqrt(4)) #Podemos crear una operación y guardarla en un vector para utilizarla posteriormente.
+y
+```
+## **Funciones que crean vectores.** 
+Para generar un vector con varios números específicos, utilizaremos la función “c” para concatenar números   
+```{r}
+d<-c(3,9,5,8,9)
+d
+```
+también la podemos utilizar con caracteres 
+```{r}
+names<-c("Michelle","Maria","Cristina")
+names
+```
+Nota: Para evitar que se impriman las comillas en nuestra cadena de texto utilizamos la función "cat"
+```{r}
+cat(c("Michelle","Maria","Cristina"))
+```
+También podemos asignarle nombres a los de elementos del vector, esto solo modifica la forma en que el vector se imprime
+```{r}
+h<- c(azul="Michelle", naranja="Maria", rosa="Cristina")
+h
+```
+Para generar secuencias de números con una distancia específica entre ellos, utilizaremos la función “seq”
+```{r}
+ f<-seq(1.0,10.0,0.2)	
+f
+```
+Otra de las funciones que podemos utilizar es “rep” la cual genera valores repetidos o segun el número o vector que le asignemos en el segundo argumento. *Por ejemplo:* 
+```{r}
+j<-rep(1:7,3)
+j
+```
+Estas funciones las podemos combinar, sobre todo en el caso "c"
+```{r}
+v<-rep(1:4,c(10,5,4,2))
+v
+```
+Como podemos observar estos objetos se guardan el nuestro Global Enviroment, y para eliminarlos podemos utilizar:
+```{r}
+ rm(list=ls())  
+```
+## **Matrices.**
+Una matriz es una estructura conformada por filas y columnas, idealmente más de dos filas y columnas, y la intersección de estas filas y columnas son casillas que podrán poseer información, simple o compleja.
+
+Principalmente utilizamos matrices que contienen elementos numéricos para realizar cálculos matemáticos. 
+
+La función que utilizamos en R para crear una matriz es  **"matrix()"**, y su sintaxis básica es: 
+
+**matrix(data, nrow, ncol, byrow, dimnames)**, donde
+
+"data": es el vector de entrada que se convierte en los elementos de datos de la matriz.
+
+"nrow": la cantidad de filas que se crearán.
+
+"ncol": el número de columnas que se crearán.
+
+"byrow":  es un elemento lógico. Si es TRUE, los elementos del vector de entrada se organizan por fila.
+
+"dimnames": son los nombres asignados a las filas y columnas.
+
+```{r}
+#Para asignar los valores por fila 
+ m_1<- matrix(c(4:15), nrow = 4, byrow = TRUE)
+m_1
+```
+
+```{r}
+#Para asiganar los valores por columna 
+m_2<-matrix(c(4:15), nrow = 4, byrow = FALSE)
+m_2
+```
+
+```{r}
+# Vamos a definir los nombres de las filas y las columnas 
+rownames = c("f1", "f2", "f3", "f4")
+colnames = c("c1", "c2", "c3")
+```
+
+```{r}
+p_mat<-matrix(c(4:15), nrow = 4, byrow = TRUE, dimnames = list(rownames, colnames))
+p_mat
+```
+
+```{r}
+#Para acceder a un elemnto en especifico dentro de la matriz
+print(p_mat[2,3])
+```
+
+
+
+
+
+
